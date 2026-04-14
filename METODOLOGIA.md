@@ -49,9 +49,10 @@ Una vez que el RFC ha sido `Aprobado`, el Jefe de Proyecto asume la responsabili
 ### Pasos de la Fase 1:
 
 **1. Configuración del Repositorio**  
-Crea el nuevo repositorio usando [lyoss-usm/template](https://github.com/lyoss-usm/template) como base. IMPORTANTE: Asegúrate de marcar la casilla "Include all branches" al momento de crearlo.
-
-<img width="776" height="271" alt="image" src="https://github.com/user-attachments/assets/f018b702-cc5a-4897-8aa8-c3ac3071d18c" />
+Crea el nuevo repositorio usando [lyoss-usm/template](https://github.com/lyoss-usm/template) como base.
+> [!IMPORTANT]
+> Asegúrate de marcar la casilla "Include all branches" al momento de crearlo.
+> <img width="776" height="271" alt="image" src="https://github.com/user-attachments/assets/f018b702-cc5a-4897-8aa8-c3ac3071d18c" />
 
 Al iniciar asegurate de ejecutar el workflow *Setup Repo Labels and Rulesets* en la Pestaña de **Actions**.
 
@@ -67,27 +68,36 @@ Al terminar, abre un Pull Request hacia `dev` para la revision inicial. No olvid
 **2. Desglose y Creación de Issues**  
 El Jefe de Proyecto es el encargado de crear los *Issues* (tareas atómicas). Utilizamos una **Plantilla de Issue** ya predefinida en GitHub:
 * **Historia de Usuario:** "*Como [Usuario] Quiero [Lograr algo] Para [Obtener un beneficio]*".
-* **Criterios de Aceptación:** Checklist con las condiciones exactas para terminar la tarea.
+* **Criterios de Aceptación:** Checklist con las condiciones exactas para considerar la tarea terminada.
 * **Tareas de Desarrollo:** Lista técnica de pasos a implementar.
 
-**3. Búsqueda Activa de Colaboradores**  
-Si bien la comunidad de Lyoss USM hace llamados generales para participar, **es vital que el Jefe de Proyecto busque activamente talento**. No esperes a que la gente adivine que tu proyecto existe. Promociona tus Issues en los grupos, invita directamente a compañeros a resolver tareas pequeñas y sé un mentor. La comunidad te dará todas las plataformas, pero la motivación del equipo depende de ti. ([Guía: Cómo encontrar usuarios y colaboradores](https://opensource.guide/es/finding-users/)).
-
-**4. Uso de Etiquetas**  
+**3. Uso de Etiquetas**  
 Cada Issue debe ser categorizado para organizar el tablero y el Changelog:
-* `Funcionalidad`: Nuevas características.
-* `Fix`: Solución a un bug.
-* `Test`: Pruebas.
-* `Docs`: Cambios de documentación.
-* `Oculto`: Etiqueta especial para evitar que el Issue aparezca en el Changelog final al usar "Squash and Merge".
+* `Bug`: Reportes de errores o fallos en el codigo que afectan el funcionamiento esperado.
+* `Fix`: Solucion a un Bug/Error.
+* `Funcionalidad`: Historia de Usuario que representa un requisito funcional.
+* `Documentacion`: Cambios en la documentacion sin cambios en la funcionalidad.
+* `Release`: Cambios que van a produccion. (Esta etiqueta oculta PRs del changelog)
 * `Good First Issue`: Úsala para tareas muy sencillas. Es para committers con poca o nada de experiencia.
+* `Help Wanted`: Tareas que necesiten atencion extra.
+* `Tarea Tecnica`: Se tiene que realizar para continuar con el desarrollo. (Ej: setup del proyecto base o cambios en la configuracion)
+* `Test`: Pruebas de funcionamiento.
 
-**5. Asignación y Tablero (Metodologia Kanban)**  
-Para evitar reuniones largas y aburridas, foomentamos el hecho de que cada colaborador se autoasigne una tarea segun su disposiicioón de tiempo y conocimiento. El flujo del tablero es:
-* **To Do:** Issues listos para ser tomados.
-* **In Progress:** Alguien ya está trabajando en esto.
-* **In Review:** Esperando revisión (PR abierto).
-* **Done:** Tarea finalizada e integrada.
+**4. Asignación y Tablero (Metodologia Kanban)**
+Para evitar reuniones largas y aburridas, foomentamos el hecho de que cada colaborador se autoasigne una tarea segun su disposición de tiempo y conocimiento. El flujo del tablero es:
+* **No preparada:** Aun no estan listas para ser tomadas.
+* **Pendientes:** Listas para ser tomadas.
+* **En progreso:** Alguien ya está trabajando en esto.
+* **En revision:** Esperando revisión (PR abierta).
+* **Finalizadas:** Tarea finalizada e integrada.
+
+> [!IMPORTANT]
+> El tablero del repositorio debe usar la plantilla [Lyoss Kanban Template](https://github.com/orgs/lyoss-usm/projects/13/views/1)
+> <img width="964" height="335" alt="image" src="https://github.com/user-attachments/assets/8710ccf6-d5b1-4dea-bbdc-32b73f7a3282" />
+
+
+**5. Búsqueda Activa de Colaboradores**  
+Si bien la comunidad de Lyoss USM hace llamados generales para participar, **es vital que el Jefe de Proyecto busque activamente talento**. No esperes a que la gente adivine que tu proyecto existe. Promociona tus Issues en los grupos, invita directamente a compañeros a resolver tareas pequeñas y sé un mentor. La comunidad te dará todas las plataformas, pero la motivación del equipo depende de ti. ([Guía: Cómo encontrar usuarios y colaboradores](https://opensource.guide/es/finding-users/)).
 
 ---
 
@@ -113,7 +123,8 @@ En nuestra comunidad usamos el estándar de [**Commits Convencionales (Semantic 
 * `feat: agrega buscador de salas`
 * `fix: corrige validación de login`
 * `docs: actualiza README`
-* `style: formatea código`
+* `refactor: formatea código`
+* `test: agrega pruebas unitarias`
 
 ---
 
@@ -128,7 +139,7 @@ Abre un PR apuntando siempre a la rama `dev`.
 Completa la plantilla de PR obligatoria de GitHub. Para cerrar el Issue automáticamente al aprobar el PR, usa palabras clave como `Closes #15`.
 
 **3. Revisión de Código (Code Review)**  
-**Nadie aprueba su propio código.** Espera a que un *Maintainer* o el *Jefe de Proyecto* lo revise. Si hay correcciones, haz nuevos commits en tu rama. Si todo está bien, se aprueba y se hace *merge* a `dev`.
+**Nadie aprueba su propio código.** Espera a que un *Maintainer* o el *Jefe de Proyecto* lo revise. Si hay correcciones, haz nuevos commits en tu rama. Si todo está bien, se aprueba y se une a `dev` seleccionando **Squash and Merge**.
 
 ---
 
@@ -139,8 +150,11 @@ Completa la plantilla de PR obligatoria de GitHub. Para cerrar el Issue automát
 **1. Preparación de la Release**  
 Crea un PR desde `dev` apuntando a `main`.
 
-**2. Integración mediante Squash and Merge**  
-Al aprobar, utiliza **exclusivamente** la opción **Squash and Merge**. Esto comprime todos los commits de desarrollo en uno solo, manteniendo un historial limpio, permitiendo revertir errores y generando un Changelog profesional.
+2. **Uso Obligatorio de la Etiqueta `Release`**
+Antes de hacer el merge, debes asignar la etiqueta **Release** al Pull Request. * ¿Para qué sirve? Esta etiqueta le indica a nuestro sistema de automatización que este PR no es una simple mejora, sino un salto de versión. Evitando duplicacion en la documentacion del CHANGELOG.
+
+3. **Integración Final**
+Al unir `dev` con `main`, selecciona **Create a merge commit**. Esto mantendrá un historial claro de cuándo ocurrió cada release en la línea de tiempo del proyecto.
 
 ---
 
