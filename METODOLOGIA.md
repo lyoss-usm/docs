@@ -49,11 +49,20 @@ Una vez que el RFC ha sido `Aprobado`, el Jefe de Proyecto asume la responsabili
 ### Pasos de la Fase 1:
 
 **1. Configuración del Repositorio**  
-El repositorio debe ser acogedor. Alguien que no conoce el proyecto debería poder entenderlo en 5 minutos. Debes inicializar lo siguiente, como minimo:
-* **Archivo README.md:** Descripción del proyecto, requisitos, y cómo ejecutarlo localmente.
-* **Archivo CONTRIBUTING.md:** Una guía rápida de cómo otros estudiantes pueden aportar (dónde encontrar issues, con quién hablar).
-* **El Documento RFC:** Subir el archivo Markdown del RFC a `/docs` o la raíz, para que el historial de decisiones esté siempre visible.
-* **Estructura Base:** Crear las carpetas iniciales (`/src`, `/docs`, etc.).
+Crea el nuevo repositorio usando [lyoss-usm/template](https://github.com/lyoss-usm/template) como base. IMPORTANTE: Asegúrate de marcar la casilla "Include all branches" al momento de crearlo.
+
+<img width="776" height="271" alt="image" src="https://github.com/user-attachments/assets/f018b702-cc5a-4897-8aa8-c3ac3071d18c" />
+
+Al iniciar asegurate de ejecutar el workflow *Setup Repo Labels and Rulesets* en la Pestaña de **Actions**.
+
+<img width="1315" height="329" alt="image" src="https://github.com/user-attachments/assets/17391837-aace-4ce2-8c61-440859cdbe0a" />
+
+El template viene con una rama especial llamada `chore/init`. Esta es la rama para inicializar el proyecto, aqui debes:
+* **Modificar README.md**
+* **Subir Documento RFC a la Raiz**
+* **(Opcional) Agregar archivos o informacion que consideres relevante**
+
+Al terminar, abre un Pull Request hacia `dev` para la revision inicial. No olvides notificar por **discord** en el canal correspondiente.
 
 **2. Desglose y Creación de Issues**  
 El Jefe de Proyecto es el encargado de crear los *Issues* (tareas atómicas). Utilizamos una **Plantilla de Issue** ya predefinida en GitHub:
