@@ -50,15 +50,11 @@ Una vez que el RFC ha sido `Aprobado`, el Jefe de Proyecto asume la responsabili
 
 **1. Configuración del Repositorio**  
 Crea el nuevo repositorio usando [lyoss-usm/template](https://github.com/lyoss-usm/template) como base.
-> [!IMPORTANT]
-> Asegúrate de marcar la casilla "Include all branches" al momento de crearlo.
-> <img width="776" height="271" alt="image" src="https://github.com/user-attachments/assets/f018b702-cc5a-4897-8aa8-c3ac3071d18c" />
-
 Al iniciar asegurate de ejecutar el workflow *Setup Repo Labels and Rulesets* en la Pestaña de **Actions**.
 
 <img width="1315" height="329" alt="image" src="https://github.com/user-attachments/assets/17391837-aace-4ce2-8c61-440859cdbe0a" />
 
-El template viene con una rama especial llamada `chore/init`. Esta es la rama para inicializar el proyecto, aqui debes:
+Una vez ejecutado el workflow, debes crear la rama `dev` y `chore/init` a partir de `main`. Esta ultima rama es para inicializar el proyecto, aqui debes:
 * **Modificar README.md**
 * **Subir Documento RFC a la Raiz**
 * **(Opcional) Agregar archivos o informacion que consideres relevante**
